@@ -16,6 +16,7 @@
 		384C17EF2B94AA3200E501BE /* BitTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384C17EE2B94AA3200E501BE /* BitTestTests.swift */; };
 		384C17F92B94AA3200E501BE /* BitTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384C17F82B94AA3200E501BE /* BitTestUITests.swift */; };
 		384C17FB2B94AA3200E501BE /* BitTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384C17FA2B94AA3200E501BE /* BitTestUITestsLaunchTests.swift */; };
+		384C180A2B94AD0800E501BE /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 384C18092B94AD0800E501BE /* Networking */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		384C17F42B94AA3200E501BE /* BitTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BitTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		384C17F82B94AA3200E501BE /* BitTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitTestUITests.swift; sourceTree = "<group>"; };
 		384C17FA2B94AA3200E501BE /* BitTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		384C18072B94ACF200E501BE /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Networking; path = ../Networking; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				384C180A2B94AD0800E501BE /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,10 +82,12 @@
 		384C17CB2B94AA3000E501BE = {
 			isa = PBXGroup;
 			children = (
+				384C18072B94ACF200E501BE /* Networking */,
 				384C17D62B94AA3000E501BE /* BitTest */,
 				384C17ED2B94AA3200E501BE /* BitTestTests */,
 				384C17F72B94AA3200E501BE /* BitTestUITests */,
 				384C17D52B94AA3000E501BE /* Products */,
+				384C18082B94AD0800E501BE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +132,13 @@
 			path = BitTestUITests;
 			sourceTree = "<group>";
 		};
+		384C18082B94AD0800E501BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +155,9 @@
 			dependencies = (
 			);
 			name = BitTest;
+			packageProductDependencies = (
+				384C18092B94AD0800E501BE /* Networking */,
+			);
 			productName = BitTest;
 			productReference = 384C17D42B94AA3000E501BE /* BitTest.app */;
 			productType = "com.apple.product-type.application";
@@ -607,6 +622,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		384C18092B94AD0800E501BE /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 384C17CC2B94AA3000E501BE /* Project object */;
 }
