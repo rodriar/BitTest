@@ -17,6 +17,7 @@
 		384C17F92B94AA3200E501BE /* BitTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384C17F82B94AA3200E501BE /* BitTestUITests.swift */; };
 		384C17FB2B94AA3200E501BE /* BitTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384C17FA2B94AA3200E501BE /* BitTestUITestsLaunchTests.swift */; };
 		384C180A2B94AD0800E501BE /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 384C18092B94AD0800E501BE /* Networking */; };
+		384C180D2B95060800E501BE /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 384C180C2B95060800E501BE /* Domain */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		384C17F82B94AA3200E501BE /* BitTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitTestUITests.swift; sourceTree = "<group>"; };
 		384C17FA2B94AA3200E501BE /* BitTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		384C18072B94ACF200E501BE /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Networking; path = ../Networking; sourceTree = "<group>"; };
+		384C180B2B9503A400E501BE /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Domain; path = ../Domain; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				384C180D2B95060800E501BE /* Domain in Frameworks */,
 				384C180A2B94AD0800E501BE /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,6 +85,7 @@
 		384C17CB2B94AA3000E501BE = {
 			isa = PBXGroup;
 			children = (
+				384C180B2B9503A400E501BE /* Domain */,
 				384C18072B94ACF200E501BE /* Networking */,
 				384C17D62B94AA3000E501BE /* BitTest */,
 				384C17ED2B94AA3200E501BE /* BitTestTests */,
@@ -157,6 +161,7 @@
 			name = BitTest;
 			packageProductDependencies = (
 				384C18092B94AD0800E501BE /* Networking */,
+				384C180C2B95060800E501BE /* Domain */,
 			);
 			productName = BitTest;
 			productReference = 384C17D42B94AA3000E501BE /* BitTest.app */;
@@ -627,6 +632,10 @@
 		384C18092B94AD0800E501BE /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Networking;
+		};
+		384C180C2B95060800E501BE /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
