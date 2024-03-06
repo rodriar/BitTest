@@ -18,6 +18,10 @@
 		384C17FB2B94AA3200E501BE /* BitTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384C17FA2B94AA3200E501BE /* BitTestUITestsLaunchTests.swift */; };
 		384C180A2B94AD0800E501BE /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 384C18092B94AD0800E501BE /* Networking */; };
 		384C180D2B95060800E501BE /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 384C180C2B95060800E501BE /* Domain */; };
+		384C180F2B950F5100E501BE /* BooksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384C180E2B950F5100E501BE /* BooksManager.swift */; };
+		387009E22B97E1440029907D /* BooksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387009E12B97E1440029907D /* BooksListViewController.swift */; };
+		387009E42B97E56E0029907D /* BooksListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387009E32B97E56E0029907D /* BooksListViewModel.swift */; };
+		387009E62B97E57A0029907D /* BooksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387009E52B97E57A0029907D /* BooksListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		384C17FA2B94AA3200E501BE /* BitTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		384C18072B94ACF200E501BE /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Networking; path = ../Networking; sourceTree = "<group>"; };
 		384C180B2B9503A400E501BE /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Domain; path = ../Domain; sourceTree = "<group>"; };
+		384C180E2B950F5100E501BE /* BooksManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksManager.swift; sourceTree = "<group>"; };
+		387009E12B97E1440029907D /* BooksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListViewController.swift; sourceTree = "<group>"; };
+		387009E32B97E56E0029907D /* BooksListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListViewModel.swift; sourceTree = "<group>"; };
+		387009E52B97E57A0029907D /* BooksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +116,7 @@
 		384C17D62B94AA3000E501BE /* BitTest */ = {
 			isa = PBXGroup;
 			children = (
+				387009E02B97E1150029907D /* Books */,
 				384C17D72B94AA3000E501BE /* AppDelegate.swift */,
 				384C17D92B94AA3000E501BE /* SceneDelegate.swift */,
 				384C17DB2B94AA3000E501BE /* ViewController.swift */,
@@ -115,6 +124,7 @@
 				384C17E02B94AA3200E501BE /* Assets.xcassets */,
 				384C17E22B94AA3200E501BE /* LaunchScreen.storyboard */,
 				384C17E52B94AA3200E501BE /* Info.plist */,
+				384C180E2B950F5100E501BE /* BooksManager.swift */,
 			);
 			path = BitTest;
 			sourceTree = "<group>";
@@ -141,6 +151,16 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		387009E02B97E1150029907D /* Books */ = {
+			isa = PBXGroup;
+			children = (
+				387009E12B97E1440029907D /* BooksListViewController.swift */,
+				387009E32B97E56E0029907D /* BooksListViewModel.swift */,
+				387009E52B97E57A0029907D /* BooksListView.swift */,
+			);
+			path = Books;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +300,10 @@
 			files = (
 				384C17DC2B94AA3000E501BE /* ViewController.swift in Sources */,
 				384C17D82B94AA3000E501BE /* AppDelegate.swift in Sources */,
+				387009E62B97E57A0029907D /* BooksListView.swift in Sources */,
+				387009E22B97E1440029907D /* BooksListViewController.swift in Sources */,
+				387009E42B97E56E0029907D /* BooksListViewModel.swift in Sources */,
+				384C180F2B950F5100E501BE /* BooksManager.swift in Sources */,
 				384C17DA2B94AA3000E501BE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
