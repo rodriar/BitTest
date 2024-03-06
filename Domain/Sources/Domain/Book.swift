@@ -11,7 +11,7 @@ public struct BooksResponse: Codable {
     public let payload: [Book]
 }
 
-public struct Book: Codable {
+public struct Book: Codable, Hashable {
     
     public let defaultChart: String
     public let minimumPrice: String
