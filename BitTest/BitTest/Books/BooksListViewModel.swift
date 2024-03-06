@@ -16,6 +16,7 @@ final class BooksListViewModel: ObservableObject {
 
     enum Input {
         case tappedBook
+        case refreshData
 
     }
 
@@ -28,17 +29,24 @@ final class BooksListViewModel: ObservableObject {
         switch input {
         case .tappedBook: break
 
+        case .refreshData:
+            loadBooks()
         }
 
     }
 
     var output: ((Output) -> Void)?
-
+    let booksManager: BooksManager
 
 
     init(booksManager: BooksManager = BooksManager.shared,
          output: ((Output) -> Void)?) {
         self.output = output
+        self.booksManager = booksManager
+        self.loadBooks()
+    }
+    
+    private func loadBooks() {
         booksManager.getBooks { [weak self] result in
             guard let strongSelf = self else { return }
             switch result {

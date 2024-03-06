@@ -37,6 +37,9 @@ struct BooksListView: View {
                 Text("\(book.book)")
             }
         }
+        .refreshable {
+            viewModel.input(.refreshData)
+        }
     }
 }
 
