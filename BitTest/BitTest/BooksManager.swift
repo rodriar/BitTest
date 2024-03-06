@@ -13,9 +13,17 @@ class BooksManager {
     
     static let shared = BooksManager()
     let apiClient: APIClientProtocol
+    let numberFormatter = NumberFormatter()
     
     init(apiClient: APIClientProtocol = APIClient()) {
         self.apiClient = apiClient
+        setupFormatter()
+    }
+    
+    private func setupFormatter() {
+        numberFormatter.numberStyle = .currency
+        numberFormatter.locale = Locale.current
+        numberFormatter.maximumFractionDigits = 20
     }
     
     func getBooks(completion: @escaping (Result<BooksResponse, APIError>) -> Void) {
@@ -29,4 +37,27 @@ class BooksManager {
              completion(result)
          }
     }
+    
+    func getFormattedName(book: Book) -> String {
+        return book.book.uppercased().replacingOccurrences(of: "_", with: " ")
+    }
+    
+    func getFormattedMaximumPrice(book: Book) -> String {
+        return getNumberOutOfBookString(value: book.maximumPrice)
+    }
+    
+    func getFormattedMaximumValue(book: Book) -> String {
+        return getNumberOutOfBookString(value: book.maximumValue)
+    }
+    
+    func getFormattedMinimumValue(book: Book) -> String {
+        return getNumberOutOfBookString(value: book.minimumValue)
+    }
+    
+    private func getNumberOutOfBookString(value: String) -> String {
+        guard let double = Double(value) else { return "--" }
+        let number = NSNumber(value: double)
+        return numberFormatter.string(from: number) ?? "--"
+    }
+    
 }

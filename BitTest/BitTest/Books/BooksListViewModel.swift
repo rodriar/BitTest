@@ -57,5 +57,21 @@ final class BooksListViewModel: ObservableObject {
             }
         }
     }
+    
+    func getName(book: Book) -> String {
+       return booksManager.getFormattedName(book: book)
+    }
+    
+    func getMaxPrice(book: Book) -> String {
+       return "Max Price: \(booksManager.getFormattedMaximumPrice(book: book))"
+    }
+    
+    func getMaxValue(book: Book) -> String {
+       return "Max val: \(booksManager.getFormattedMaximumValue(book: book))"
+    }
+    
+    func getMinValue(book: Book) -> String {
+       return "Min val: \(booksManager.getFormattedMinimumValue(book: book))"
+    }
 
 }

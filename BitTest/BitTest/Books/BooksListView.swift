@@ -34,9 +34,30 @@ struct BooksListView: View {
      title
         List {
             ForEach(viewModel.books, id: \.self) { book in
-                Text("\(book.book)")
+                VStack(alignment: .leading, spacing: 8) {
+                    HStack {
+                        Text(viewModel.getName(book: book))
+                            .font(.headline)
+                            .fontWeight(.bold)
+                        Spacer()
+                        Text(viewModel.getMaxPrice(book: book))
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                    }
+                    HStack {
+                        Text(viewModel.getMaxValue(book: book))
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        Spacer()
+                        Text(viewModel.getMinValue(book: book))
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                }
+                .padding()
             }
         }
+        .padding(.vertical)
         .refreshable {
             viewModel.input(.refreshData)
         }
