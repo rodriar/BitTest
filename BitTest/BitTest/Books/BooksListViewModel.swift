@@ -12,17 +12,17 @@ import SwiftUI
 @MainActor
 final class BooksListViewModel: ObservableObject {
 
-    @Published var books: [Book] = []
-
+    @Published private(set) var books: [Book] = []
+    @Published private(set) var state: State = .loading
+    @Published var showError: Bool = false
+    
     enum Input {
         case tappedBook
         case refreshData
-
     }
 
     enum Output {
         case openBookDetail
-
     }
 
     func input(_ input: Input) {
@@ -34,16 +34,37 @@ final class BooksListViewModel: ObservableObject {
         }
 
     }
+    
+    enum VMError: Equatable {
+        case connectionError
+        case noDataError
+        case decodingError
+    }
+    
+    enum State: Equatable {
+        case loaded
+        case error(VMError)
+        case loading
+    }
 
+    var isLoading: Bool { state == .loading }
+   
     var output: ((Output) -> Void)?
-    let booksManager: BooksManager
+    private let booksManager: BooksManager
+    private weak var timer: Timer? = nil
 
 
     init(booksManager: BooksManager = BooksManager.shared,
+         timerTime: Double = 30.0,
          output: ((Output) -> Void)?) {
         self.output = output
         self.booksManager = booksManager
         self.loadBooks()
+        self.timer = Timer.scheduledTimer(timeInterval: timerTime, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+    }
+    
+    deinit {
+        self.timer?.invalidate()
     }
     
     private func loadBooks() {
@@ -51,9 +72,18 @@ final class BooksListViewModel: ObservableObject {
             guard let strongSelf = self else { return }
             switch result {
             case .success(let books):
+                strongSelf.state = .loaded
                 strongSelf.books = books.payload
             case .failure(let error):
-                print("error")
+                switch error {
+                case .decodingError:
+                    strongSelf.state = .error(.decodingError)
+                case .serverError:
+                    strongSelf.state = .error(.noDataError)
+                case .urlError:
+                    strongSelf.state = .error(.connectionError)
+                }
+                strongSelf.showError = true
             }
         }
     }
@@ -74,4 +104,7 @@ final class BooksListViewModel: ObservableObject {
        return "Min val: \(booksManager.getFormattedMinimumValue(book: book))"
     }
 
+    @objc private func fireTimer() {
+        self.loadBooks()
+    }
 }
