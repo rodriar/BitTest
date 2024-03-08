@@ -38,6 +38,18 @@ class BooksManager {
          }
     }
     
+    func getBookDetail(book: Book, completion: @escaping (Result<BookDetailResponse, APIError>) -> Void) {
+        guard let url = URL(string: "https://api.bitso.com/v3/ticker?book=\(book.book)") else {
+             completion(.failure(.urlError))
+             return
+         }
+         let request = APIRequest<BookDetailResponse>(url: url, method: "GET", body: nil, headers: nil)
+         
+        apiClient.execute(request) { result in
+             completion(result)
+         }
+    }
+    
     func getFormattedName(book: Book) -> String {
         return book.book.uppercased().replacingOccurrences(of: "_", with: " ")
     }
