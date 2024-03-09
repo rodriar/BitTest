@@ -88,6 +88,9 @@ struct BooksListView: View {
                                 .foregroundColor(.secondary)
                         }
                     }
+                    .onTapGesture {
+                        viewModel.input(.tappedBook(book))
+                    }
                     .padding()
                 }
             }

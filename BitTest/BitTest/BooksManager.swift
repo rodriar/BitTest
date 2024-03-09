@@ -66,6 +66,28 @@ class BooksManager {
         return getNumberOutOfBookString(value: book.minimumValue)
     }
     
+    func getFormattedVolume(detail: BookDetail) -> String {
+        return getNumberOutOfBookString(value: detail.volume)
+    }
+    
+    
+    func getFormattedHigh(detail: BookDetail) -> String {
+        return getNumberOutOfBookString(value: detail.high)
+    }
+    
+    func getFormattedChange(detail: BookDetail) -> String {
+        return getNumberOutOfBookString(value: detail.change24)
+    }
+    
+    func getFormattedAsk(detail: BookDetail) -> String {
+        return getNumberOutOfBookString(value: detail.ask)
+    }
+    
+    func getFormattedBid(detail: BookDetail) -> String {
+        return getNumberOutOfBookString(value: detail.bid)
+    }
+    
+    
     private func getNumberOutOfBookString(value: String) -> String {
         guard let double = Double(value) else { return "--" }
         let number = NSNumber(value: double)

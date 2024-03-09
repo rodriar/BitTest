@@ -13,16 +13,16 @@ public struct BookDetailResponse: Codable {
 
 
 public struct BookDetail: Codable {
-    public let high: String?
+    public let high: String
     public let last: String?
     public let createdAt: String?
     public let book: String?
-    public let volume: String?
+    public let volume: String
     public let vwap: String?
     public let low: String?
-    public let ask: String?
-    public let bid: String?
-    public let change24: String?
+    public let ask: String
+    public let bid: String
+    public let change24: String
 
     enum CodingKeys: String, CodingKey {
          case high

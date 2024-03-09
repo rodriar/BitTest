@@ -17,17 +17,18 @@ final class BooksListViewModel: ObservableObject {
     @Published var showError: Bool = false
     
     enum Input {
-        case tappedBook
+        case tappedBook(Book)
         case refreshData
     }
 
     enum Output {
-        case openBookDetail
+        case openBookDetail(Book)
     }
 
     func input(_ input: Input) {
         switch input {
-        case .tappedBook: break
+        case .tappedBook(let book):
+            output?(.openBookDetail(book))
 
         case .refreshData:
             loadBooks()
