@@ -12,12 +12,16 @@ import Networking
 class BooksManager {
     
     static let shared = BooksManager()
-    let apiClient: APIClientProtocol
-    let numberFormatter = NumberFormatter()
+    private let apiClient: APIClientProtocol
+    private var numberFormatter = NumberFormatter()
     
-    init(apiClient: APIClientProtocol = APIClient()) {
+    init(apiClient: APIClientProtocol = APIClient(), numberFormatter: NumberFormatter? = nil) {
         self.apiClient = apiClient
-        setupFormatter()
+        if let numberFormatter = numberFormatter {
+            self.numberFormatter = numberFormatter
+        } else {
+            setupFormatter()
+        }
     }
     
     private func setupFormatter() {
@@ -26,28 +30,16 @@ class BooksManager {
         numberFormatter.maximumFractionDigits = 20
     }
     
-    func getBooks(completion: @escaping (Result<BooksResponse, APIError>) -> Void) {
-        guard let url = URL(string: "https://api.bitso.com/v3/available_books/") else {
-             completion(.failure(.urlError))
-             return
-         }
-         let request = APIRequest<BooksResponse>(url: url, method: "GET", body: nil, headers: nil)
-         
-        apiClient.execute(request) { result in
+    func getBooks(completion: @escaping (Result<BooksResponse, APIError>) -> Void) { 
+        apiClient.execute(APIClient.getBooks()) { result in
              completion(result)
          }
     }
     
     func getBookDetail(book: Book, completion: @escaping (Result<BookDetailResponse, APIError>) -> Void) {
-        guard let url = URL(string: "https://api.bitso.com/v3/ticker?book=\(book.book)") else {
-             completion(.failure(.urlError))
-             return
-         }
-         let request = APIRequest<BookDetailResponse>(url: url, method: "GET", body: nil, headers: nil)
-         
-        apiClient.execute(request) { result in
-             completion(result)
-         }
+        apiClient.execute(APIClient.getBookDetail(book: book), callback: { result in
+            completion(result)
+        })
     }
     
     func getFormattedName(book: Book) -> String {

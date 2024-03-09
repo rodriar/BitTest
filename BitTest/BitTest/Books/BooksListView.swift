@@ -19,14 +19,11 @@ struct BooksListView: View {
     }
     
     private var title: some View {
-        VStack(spacing: 0) {
-            HStack(spacing: 0) {
-                Text("Your lists of books")
-                    .font(.system(size: 42))
-                    .foregroundColor(.black)
-                Spacer()
-            }
-        }
+        Text("Books")
+              .font(.largeTitle)
+              .fontWeight(.bold)
+              .foregroundColor(Color.primary)
+              .padding(.bottom, 20)
     }
     
     private func getAlert() -> Alert {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum APIError: Error {
+public enum APIError: Error, Equatable {
     case urlError
     case decodingError
     case serverError(String)

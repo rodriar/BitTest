@@ -8,10 +8,27 @@
 import Foundation
 
 public struct BooksResponse: Codable {
+    public init(payload: [Book]) {
+        self.payload = payload
+    }
+    
     public let payload: [Book]
 }
 
 public struct Book: Codable, Hashable {
+    
+    public init(defaultChart: String, minimumPrice: String, maximumPrice: String, book: String, minimumValue: String, maximumAmount: String, maximumValue: String, minimumAmount: String, tickSize: String) {
+        self.defaultChart = defaultChart
+        self.minimumPrice = minimumPrice
+        self.maximumPrice = maximumPrice
+        self.book = book
+        self.minimumValue = minimumValue
+        self.maximumAmount = maximumAmount
+        self.maximumValue = maximumValue
+        self.minimumAmount = minimumAmount
+        self.tickSize = tickSize
+    }
+    
     
     public let defaultChart: String
     public let minimumPrice: String
