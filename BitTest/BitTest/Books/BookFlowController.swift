@@ -33,9 +33,7 @@ final class BookFlowController: UINavigationController {
     }
     
     private func goToBookDetails(book: Book) {
-        let vm = BookDetailViewModel(book: book) { output in
-           
-        }
+        let vm = BookDetailViewModel(book: book)
         let vc = BookDetailViewController(viewModel: vm)
         
         pushViewController(vc, animated: true)

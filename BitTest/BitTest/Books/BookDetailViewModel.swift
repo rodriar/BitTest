@@ -21,18 +21,12 @@ final class BookDetailViewModel: ObservableObject {
         case refreshData
     }
 
-    enum Output {
-       
-    }
-
     func input(_ input: Input) {
         switch input {
-
         case .refreshData:
             guard let book = book else { return }
             getBookDetails(book: book)
         }
-
     }
     
     enum VMError: Equatable {
@@ -84,21 +78,15 @@ final class BookDetailViewModel: ObservableObject {
         return "Bid: \(booksManager.getFormattedBid(detail: bookDetail))"
     }
 
-   
-    var output: ((Output) -> Void)?
     private let booksManager: BooksManager
 
 
     init(booksManager: BooksManager = BooksManager.shared,
-         book: Book?,
-         output: ((Output) -> Void)?) {
-        self.output = output
+         book: Book?) {
         self.booksManager = booksManager
         self.book = book
         self.getBookDetails(book: book!)
-      
     }
-    
     
     private func getBookDetails(book: Book) {
         booksManager.getBookDetail(book: book) { [weak self] result in
@@ -120,5 +108,4 @@ final class BookDetailViewModel: ObservableObject {
             }
         }
     }
-
 }

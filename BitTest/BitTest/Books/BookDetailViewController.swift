@@ -16,9 +16,7 @@ class BookDetailViewController: UIViewController {
     init(viewModel: BookDetailViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-
     }
-
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {

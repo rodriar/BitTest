@@ -108,6 +108,6 @@ struct BookDetailView: View {
 
 struct BookDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BookDetailView(viewModel: BookDetailViewModel(book: nil, output: nil))
+        BookDetailView(viewModel: BookDetailViewModel(book: nil))
     }
 }
