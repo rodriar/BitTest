@@ -19,6 +19,7 @@ final class BooksListViewModel: ObservableObject {
     enum Input {
         case tappedBook(Book)
         case refreshData
+        case invalidateTimer
     }
 
     enum Output {
@@ -29,9 +30,10 @@ final class BooksListViewModel: ObservableObject {
         switch input {
         case .tappedBook(let book):
             output?(.openBookDetail(book))
-
         case .refreshData:
             loadBooks()
+        case .invalidateTimer:
+            timer?.invalidate()
         }
 
     }
@@ -73,8 +75,8 @@ final class BooksListViewModel: ObservableObject {
             guard let strongSelf = self else { return }
             switch result {
             case .success(let books):
-                strongSelf.state = .loaded
                 strongSelf.books = books.payload
+                strongSelf.state = .loaded
             case .failure(let error):
                 switch error {
                 case .decodingError:

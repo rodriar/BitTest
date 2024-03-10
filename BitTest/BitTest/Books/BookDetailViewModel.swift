@@ -105,8 +105,8 @@ final class BookDetailViewModel: ObservableObject {
             guard let strongSelf = self else { return }
             switch result {
             case .success(let book):
-                strongSelf.state = .loaded
                 strongSelf.bookDetail = book.payload
+                strongSelf.state = .loaded
             case .failure(let error):
                 switch error {
                 case .decodingError:
